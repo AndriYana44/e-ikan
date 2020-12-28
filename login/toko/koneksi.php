@@ -1,8 +1,5 @@
-<?php
-$localhost = "localhost";
-$username  = "root";
-$password  = "";
-$database  ="cbd";
+<?php  
 
-$conn = mysqli_connect($localhost,$username,$password,$database);
+$conn = mysqli_connect('localhost', 'root', '', 'ikan');
+
 ?>

@@ -1,0 +1,30 @@
+.sidebar {
+    margin-top: 20px;
+    height: 450px;
+    z-index: -2;
+    background-color: #c02d3c;
+    border-radius: 5px;
+}
+
+.sidebar a {
+    padding: 15px 10px;
+    color: rgb(255, 255, 255);
+    transition: .3s;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.sidebar a:hover {
+    color: #c02d3c;
+    background-color: rgb(255, 255, 255);
+}
+
+.sidebar i {
+    transition: .5s;
+    margin-right: 0px;
+}
+
+.sidebar a:hover i {
+    color: #c02d3c;
+    transform: rotate(360deg);
+}

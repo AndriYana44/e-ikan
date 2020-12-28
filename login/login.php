@@ -1,7 +1,8 @@
 <?php
 session_start(); // Start session nya
 
-function alert($text, $link){
+function alert($text, $link)
+{
 	echo "<script>
 			alert('$text');
 			window.location.href='$link';
@@ -18,12 +19,13 @@ $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' A
 $data = mysqli_fetch_array($query);
 $row = mysqli_num_rows($query);
 
-if($row > 0) {
+if ($row > 0) {
+	$_SESSION['alogin'] = "login";
 	$_SESSION['username'] = $data['username']; // Set session untuk username (simpan username di session)
 	$_SESSION['nama'] = $data['nama']; // Set session untuk nama (simpan nama di session)
 	$_SESSION['email'] = $data['email']; // Set session untuk email (simpan email di session)
-	alert('Login Berhasil!', 'welcome.php');
-}else {
+	alert('Login Berhasil!', 'toko/index.php?halaman=vahicle');
+} else {
 	alert('Username / Password tidak valid!', 'index.php');
 }
 
@@ -50,4 +52,3 @@ if($row > 0) {
 
 // 	header("location: index.php"); // Redirect kembali ke halaman index.php
 // }
-?>
