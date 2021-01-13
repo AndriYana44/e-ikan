@@ -13,18 +13,23 @@ include "koneksi.php"; // Load file koneksi.php
 
 $username = $_POST['username']; // Ambil value username yang dikirim dari form
 $password = $_POST['password']; // Ambil value password yang dikirim dari form
-$password = md5($password); // Kita enkripsi (encrypt) password tadi dengan md5
+$password = $password; // Kita enkripsi (encrypt) password tadi dengan md5
 
-$query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password'");
+$query = mysqli_query($koneksi, "SELECT * FROM akun WHERE username='$username' AND password='$password'");
 $data = mysqli_fetch_array($query);
 $row = mysqli_num_rows($query);
-
+// var_dump($username);
+// var_dump($password);
 if ($row > 0) {
 	$_SESSION['alogin'] = "login";
 	$_SESSION['username'] = $data['username']; // Set session untuk username (simpan username di session)
-	$_SESSION['nama'] = $data['nama']; // Set session untuk nama (simpan nama di session)
+	$_SESSION['nama'] = $data['username']; // Set session untuk nama (simpan nama di session)
 	$_SESSION['email'] = $data['email']; // Set session untuk email (simpan email di session)
-	alert('Login Berhasil!', 'toko/index.php?halaman=vahicle');
+	if($data['id_level'] == 1) {
+		alert('Login Sebagai Admin Berhasil!', 'toko/index.php?halaman=vahicle');
+	}else {
+		alert('Login Sebagai Customer Berhasil!', 'toko/index.php?halaman=vahicle');
+	}
 } else {
 	alert('Username / Password tidak valid!', 'index.php');
 }

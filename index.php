@@ -141,7 +141,10 @@
             <label>Alamat Lengkap</label>
             <textarea class="form-control" name="alamat"></textarea>
             <input class="form-control" type="hidden" name="tgl_buat" value="<?= date('d-m-Y'); ?>">
-            <input class="form-control" type="hidden" name="id_level" value="1">
+            <select name="level" id="level">
+                <option value="1">Admin</option>
+                <option value="2">User</option>
+            </select>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-primary" value="Buat Akun">
             </div>
